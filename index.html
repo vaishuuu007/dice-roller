@@ -1,91 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dice roller</title>
+    <title>dice-roller</title>
     <style>
-        body{
-            background-color: rgb(184, 243, 243);
+        body {
+            background-color: rgb(212, 252, 119);
         }
-        .dice-title{
+
+        .title {
             font-size: 35px;
             color: black;
             text-align: center;
         }
-        .dice-img{
+         .dice{
+             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+         }
+        .dice-img {
             width: 200px;
             height: 200px;
             display: block;
             margin: 10px auto;
         }
-        .btn-dice{
-            background-color: aqua;
+
+        .btn-dice {
+            background-color: rgb(167, 46, 223);
             color: black;
-       padding: 10px 30px;
-       font-size: 20px;
-       cursor: pointer;
-       display: block;
-       margin: 40px auto;
-       border-radius: 3px;
-       border: 2px solid black;
+            padding: 10px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            display: block;
+            margin: 40px auto;
+            border-radius: 5px;
+            border: 1px solid black;
         }
-        .btn-dice:hover{
-              box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+        .btn-dice:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
         }
-        @keyframes roll{
-            0%{
+
+        @keyframes roll {
+            0% {
                 transform: rotate(0deg);
             }
-            100%{
+
+            100% {
                 transform: rotate(360deg);
             }
         }
 
-        animate{
+        animate {
             animation: roll is infinite;
         }
-        </style>
+    </style>
 </head>
-<body>
-    <h1 class="dice-title">Roll the Dice</h1>
-    <img src="./images/dice.png" alt="dice" class="dice-img" id="dice-img"/>
-    <button class="btn-dice" onclick="roll()">Roll Dice</button>
-    <script>
-function roll(){
-    const min=1;
-    const max=6;
-    const randomNumber=Math.round(Math.random()*(max-min))+min;
-    const imgElement = document.getElementById('dice-img');
-    switch(randomNumber){
-            case 1:
-            imgElement.src='images/one.png';
-            break;
-             case 2:
-            imgElement.src = 'images/two.png';
-            break;
-             case 3:
-            imgElement.src = 'images/three.png';
-            break;
-             case 4:
-            imgElement.src = 'images/four.png';
-            break;
-             case 5:
-            imgElement.src = 'images/five.png';
-            break;
-             case 6:
-            imgElement.src = 'images/six.png';
-            break;
-            default:
-            imgElement.src='images/dice.png';    
-    }
-    imgElement.classList.add("animate");
-    setTimeout(()=>{
-        imgElement.classList.remove("animate");
-    },1000);
-}
 
-        </script>
+<body>
+    <h1 class="title dice">Let's Play</h1>
+    <h2 class="title"><i>Roll the Dice</i></h2>
+    <img src="./images/dice.png" alt="dice" class="dice-img" id="dice-img" />
+    <button class="btn-dice" onclick="rollDice()">Roll Dice</button>
+    <script>
+        function rollDice() {
+            const min = 1;
+            const max = 6;
+            const randomNumber = Math.round(Math.random() * (max - min)) + min;
+            const imgElement = document.getElementById('dice-img');
+            switch (randomNumber) {
+                case 1:
+                    imgElement.src = 'images/one.png';
+                    break;
+                case 2:
+                    imgElement.src = 'images/two.png';
+                    break;
+                case 3:
+                    imgElement.src = 'images/three.png';
+                    break;
+                case 4:
+                    imgElement.src = 'images/four.png';
+                    break;
+                case 5:
+                    imgElement.src = 'images/five.png';
+                    break;
+                case 6:
+                    imgElement.src = 'images/six.png';
+                    break;
+                default:
+                    imgElement.src = 'images/dice.png';
+            }
+            imgElement.classList.add("animate");
+            setTimeout(() => {
+                imgElement.classList.remove("animate");
+            }, 1000);
+        }
+
+    </script>
 </body>
+
 </html>
